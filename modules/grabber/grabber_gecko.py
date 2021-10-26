@@ -70,29 +70,3 @@ class grabber_ge:
 #    print('Гидрометцентр говорит что сейчас', gidromet_weather(gidromet_url))
 
 
-# Считаем среднее арифметическое
-#    yaweather_for_int = 0
-#    if (yandex_weather(ya_url)[0]) == "−":
-#        yaweather_for_int = (0 - float(yandex_weather(ya_url)[1:]))
-#    else:
-#        yaweather_for_int = float(yandex_weather(ya_url)[1:])
-#print(yaweather_for_int)
-
-#    gisweather_for_int = 0
-#    if (gismeteo_weather(gis_url)[0]) == "−":
-#        gisweather_for_int = (0 - float(gismeteo_weather(gis_url)[1:]))
-#    else:
-#        gisweather_for_int = float(gismeteo_weather(gis_url)[1:])
-#print(gisweather_for_int)
-
-#    gidrometweather_for_int = float(gidromet_weather(gidromet_url))
-#if (gidromet_weather(gidromet_url)[0]) == "-":
-#    gidrometweather_for_int = (0 - float(gidromet_weather(gidromet_url)[1:]))
-#else:
-#    gidrometweather_for_int = float(gidromet_weather(gidromet_url)[1:])
-#print(gidrometweather_for_int)
-
-
-#    rounds = round((yaweather_for_int + gisweather_for_int + gidrometweather_for_int)/3, 1)
-#    print('А в среднем сейчас', rounds)
-

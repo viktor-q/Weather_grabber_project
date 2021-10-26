@@ -2,6 +2,7 @@ from flask import Flask, request
 #from modules.grabber import grabber_gecko
 from modules.databases import city_links_base
 from modules.grabber.grabber_gecko import grabber_ge
+from modules.grabber.counter import counter
 from flask import render_template, flash, redirect
 
 
@@ -24,14 +25,13 @@ def count():
 
     if request.method == 'POST':
         region = request.form.get('selectcity')
-        parcer = grabber_ge()
+        parcer = counter()
         if region == '78':
-            fff = city_links_base.yandex_78
-        if region == '40':
-            fff = city_links_base.yandex_40
+            otchet = parcer.count('https://yandex.ru/pogoda/saint-petersburg', 'http://www.gismeteo.ru/weather-sankt-peterburg-4079/', 'http://old.meteoinfo.ru/forecasts5000/russia/leningrad-region/sankt-peterburg')
 
 
-        otchet = parcer.yandex_weather(fff)
+
+
     return str([otchet, region])
 
 
