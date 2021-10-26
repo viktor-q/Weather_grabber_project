@@ -26,8 +26,12 @@ def count():
     if request.method == 'POST':
         region = request.form.get('selectcity')
         parcer = counter()
-        if region == '78':
-            otchet = parcer.count('https://yandex.ru/pogoda/saint-petersburg', 'http://www.gismeteo.ru/weather-sankt-peterburg-4079/', 'http://old.meteoinfo.ru/forecasts5000/russia/leningrad-region/sankt-peterburg')
+
+        a = city_links_base.yandex_78
+        b = city_links_base.gismeteo_78
+        c = city_links_base.gidromet_78
+
+        otchet = parcer.count(a, b, c)
 
 
 
