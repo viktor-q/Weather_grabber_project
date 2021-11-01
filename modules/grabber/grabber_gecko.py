@@ -1,60 +1,48 @@
-# weather_grab
-# 26.10.2021
 import requests
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 
-#ya_url = 'https://yandex.ru/pogoda/saint-petersburg'
-#ya_url = 'https://yandex.ru/pogoda/krasnodar'
-
-#gis_url = 'http://www.gismeteo.ru/weather-sankt-peterburg-4079/'
-#gis_url = 'https://www.gismeteo.ru/weather-kaluga-4387/'
-
-#gidromet_url = 'http://old.meteoinfo.ru/forecasts5000/russia/leningrad-region/sankt-peterburg'
 
 class grabber_ge:
     def __init__(self):
         self.grerbgtf = 1
 
-
     def yandex_weather(self, ya_url):
         from selenium import webdriver
         from selenium.webdriver.firefox.options import Options
+
         options = Options()
         options.headless = True
-        driver = webdriver.Firefox(options=options, executable_path=r'/usr/local/bin/geckodriver')
+        driver = webdriver.Firefox(options=options, executable_path=r"/usr/local/bin/geckodriver")
         driver.set_window_size(1440, 900)
         driver.get(ya_url)
 
-        tag_list = driver.find_elements_by_class_name('fact__temp-wrap')
+        tag_list = driver.find_elements_by_class_name("fact__temp-wrap")
 
         weather_alltext = []
         for e in tag_list:
             weather_alltext.append(e.text)
-        str_weather_alltext = weather_alltext[0].split(sep='\n')
+        str_weather_alltext = weather_alltext[0].split(sep="\n")
 
         driver.quit()
 
-        return(str_weather_alltext[0])
-
-
-
+        return str_weather_alltext[0]
 
     def gismeteo_weather(self, gis_url):
-        response = requests.get(gis_url, headers={'User-Agent': UserAgent().chrome})
-        soup = BeautifulSoup(response.text, 'lxml')
-        weather_all = soup.find_all('span', class_="js_value tab-weather__value_l")
+        response = requests.get(gis_url, headers={"User-Agent": UserAgent().chrome})
+        soup = BeautifulSoup(response.text, "lxml")
+        weather_all = soup.find_all("span", class_="js_value tab-weather__value_l")
 
         weather_alltext = []
 
         for weather_now in weather_all:
-            weather_alltext.append(weather_now.text.replace('\n','').replace(' ',''))
+            weather_alltext.append(weather_now.text.replace("\n", "").replace(" ", ""))
 
-        return weather_alltext[0].replace(',','.')
+        return weather_alltext[0].replace(",", ".")
 
     def gidromet_weather(self, gidromet_url):
         response = requests.get(gidromet_url)
-        soup = BeautifulSoup(response.text, 'lxml')
+        soup = BeautifulSoup(response.text, "lxml")
         weather_all = soup.find_all(class_="pogodacell")
 
         weather_alltext = []
@@ -62,15 +50,12 @@ class grabber_ge:
         for weather_now in weather_all:
             weather_alltext.append(weather_now.text)
 
-#    return (weather_alltext[7])[7:]
+        #    return (weather_alltext[7])[7:]
         return (weather_alltext[7])[6:]
 
-#test = grabber_ge()
-#from modules.databases import city_links_base
-#xxx = city_links_base.regions[78]['yandex']
-#print(xxx)
-#print('Яндекс говорит что сейчас', test.yandex_weather(xxx))
 
-
-
-
+# test = grabber_ge()
+# from modules.databases import city_links_base
+# xxx = city_links_base.regions[78]['yandex']
+# print(xxx)
+# print('Яндекс говорит что сейчас', test.yandex_weather(xxx))
