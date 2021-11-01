@@ -1,9 +1,11 @@
 from modules.grabber.grabber_gecko import grabber_ge
 parcer = grabber_ge()
 
-#ya_url = 'https://yandex.ru/pogoda/saint-petersburg'
-#gis_url = 'http://www.gismeteo.ru/weather-sankt-peterburg-4079/'
-#gidromet_url = 'http://old.meteoinfo.ru/forecasts5000/russia/leningrad-region/sankt-peterburg'
+#from modules.databases import city_links_base
+#ya_url = city_links_base.regions[78]['yandex']
+#gis_url = city_links_base.regions[78]['gismeteo']
+#gidromet_url = city_links_base.regions[78]['gidromet']
+
 class counter:
     def __init__(self):
         self.grerbgtf = 1
@@ -35,3 +37,9 @@ class counter:
 
         print('А в среднем сейчас', rounds)
         return rounds
+
+#test = counter()
+#x_reg = 40
+#test.count(city_links_base.regions[x_reg]['yandex'],
+#           city_links_base.regions[x_reg]['gismeteo'],
+#           city_links_base.regions[x_reg]['gidromet'])

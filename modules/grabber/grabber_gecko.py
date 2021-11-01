@@ -4,13 +4,13 @@ import requests
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 
-ya_url = 'https://yandex.ru/pogoda/saint-petersburg'
+#ya_url = 'https://yandex.ru/pogoda/saint-petersburg'
 #ya_url = 'https://yandex.ru/pogoda/krasnodar'
 
-gis_url = 'http://www.gismeteo.ru/weather-sankt-peterburg-4079/'
+#gis_url = 'http://www.gismeteo.ru/weather-sankt-peterburg-4079/'
 #gis_url = 'https://www.gismeteo.ru/weather-kaluga-4387/'
 
-gidromet_url = 'http://old.meteoinfo.ru/forecasts5000/russia/leningrad-region/sankt-peterburg'
+#gidromet_url = 'http://old.meteoinfo.ru/forecasts5000/russia/leningrad-region/sankt-peterburg'
 
 class grabber_ge:
     def __init__(self):
@@ -65,8 +65,12 @@ class grabber_ge:
 #    return (weather_alltext[7])[7:]
         return (weather_alltext[7])[6:]
 
-#    print('Яндекс говорит что сейчас', yandex_weather(ya_url))
-#    print('Гисметео говорит что сейчас', gismeteo_weather(gis_url))
-#    print('Гидрометцентр говорит что сейчас', gidromet_weather(gidromet_url))
+#test = grabber_ge()
+#from modules.databases import city_links_base
+#xxx = city_links_base.regions[78]['yandex']
+#print(xxx)
+#print('Яндекс говорит что сейчас', test.yandex_weather(xxx))
+
+
 
 

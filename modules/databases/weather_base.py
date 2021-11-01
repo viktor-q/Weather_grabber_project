@@ -2,7 +2,7 @@ import sqlite3
 #import maker
 import datetime
 
-class Databaser_cl:
+class databaser_cl:
     def __init__(self):
         self.conn = sqlite3.connect('orders.db', check_same_thread=False)
         self.cur = self.conn.cursor()
@@ -10,18 +10,19 @@ class Databaser_cl:
         # make table
         self.cur.execute("""CREATE TABLE IF NOT EXISTS table_for_results(
                        date INT PRIMARY KEY,
-                       temperature INT);
+                       temperature INT,
+                       region INT);
                     """)
         self.conn.commit()
 
 
 
 
-    def post_to_table(self, firstnum, secondnum):
+    def post_to_table(self, temp_parced, region):
 
         # add data
-        pars_data = (datetime.datetime.today().replace(microsecond=0), maker.maker_foo(firstnum, secondnum))
-        self.cur.execute("INSERT INTO table_for_results VALUES(?, ?);", pars_data)
+        pars_data = (datetime.datetime.today().replace(microsecond=0), temp_parced, region)
+        self.cur.execute("INSERT INTO table_for_results VALUES(?, ?, ?);", pars_data)
         self.conn.commit()
 
 
@@ -37,7 +38,7 @@ class Databaser_cl:
 
 
 #for test
-#fiction = Databaser_cl()
-#fiction.post_to_table(4, 2)
+#fiction = databaser_cl()
+#fiction.post_to_table(8, 2)
 #print(str(fiction.read_from_table()))
 #

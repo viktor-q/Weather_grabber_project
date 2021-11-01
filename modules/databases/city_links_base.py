@@ -1,14 +1,22 @@
-yandex_40 = 'https://yandex.ru/pogoda/kaluga'
-yandex_71 = 'https://yandex.ru/pogoda/tula'
-yandex_77 = 'https://yandex.ru/pogoda/moscow'
-yandex_78 = 'https://yandex.ru/pogoda/saint-petersburg'
+regions = {40: {
+    'yandex': 'https://yandex.ru/pogoda/kaluga',
+    'gismeteo': 'https://www.gismeteo.ru/weather-kaluga-4387/',
+    'gidromet': 'http://old.meteoinfo.ru/forecasts5000/russia/kaluga-area/kaluga'
+    },
+    71: {
+        'yandex': 'https://yandex.ru/pogoda/tula',
+        'gismeteo': 'https://www.gismeteo.ru/weather-tula-4392/',
+        'gidromet': 'http://old.meteoinfo.ru/forecasts5000/russia/tula-area/tula'
+    },
+    77: {
+        'yandex': 'https://yandex.ru/pogoda/moscow',
+        'gismeteo': 'https://www.gismeteo.ru/weather-moscow-4368/',
+        'gidromet': 'http://old.meteoinfo.ru/forecasts5000/russia/moscow-area/domodedowo'
+    },
+    78: {
+        'yandex': 'https://yandex.ru/pogoda/saint-petersburg',
+        'gismeteo': 'http://www.gismeteo.ru/weather-sankt-peterburg-4079/',
+        'gidromet': 'http://old.meteoinfo.ru/forecasts5000/russia/leningrad-region/sankt-peterburg'
+    }
+}
 
-gismeteo_40 = 'https://www.gismeteo.ru/weather-kaluga-4387/'
-gismeteo_71 = 'https://www.gismeteo.ru/weather-tula-4392/'
-gismeteo_77 = 'https://www.gismeteo.ru/weather-moscow-4368/'
-gismeteo_78 = 'http://www.gismeteo.ru/weather-sankt-peterburg-4079/'
-
-gidromet_40 = 'http://old.meteoinfo.ru/forecasts5000/russia/kaluga-area/kaluga'
-gidromet_71 = 'http://old.meteoinfo.ru/forecasts5000/russia/tula-area/tula'
-gidromet_77 = 'http://old.meteoinfo.ru/forecasts5000/russia/moscow-area/moscow'
-gidromet_78 = 'http://old.meteoinfo.ru/forecasts5000/russia/leningrad-region/sankt-peterburg'
