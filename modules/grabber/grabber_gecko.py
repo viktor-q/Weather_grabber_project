@@ -5,7 +5,7 @@ from fake_useragent import UserAgent
 
 class grabber_ge:
     def __init__(self):
-        self.grerbgtf = 1
+        self.the_construc_texamp = 1
 
     def yandex_weather(self, ya_url):
         from selenium import webdriver

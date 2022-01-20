@@ -1,7 +1,7 @@
 from flask import Flask, flash, redirect, render_template, request
+
 from modules.databases import city_links_base, weather_base
 from modules.grabber.counter import counter
-
 
 app = Flask(__name__, template_folder="modules/webtemplates")
 app.config.from_object("config")
@@ -32,7 +32,6 @@ def count():
             city_links_base.regions[region_selected]["gismeteo"],
             city_links_base.regions[region_selected]["gidromet"],
         )
-
 
         prod_db.post_to_table(str(parced_result), region_selected)
 
